@@ -11,29 +11,29 @@ public  class Pozycja implements Serializable
 	
 	private double cena;
 	
-	public String getnazwaTowaru() {
+	public String getNazwaTowaru() {
 		return nazwaTowaru;
 	}
 
-	public void setnazwaTowaru(String nazwaTowaru)
+	public void setNazwaTowaru(String NazwaTowaru)
 	{
-		this.nazwaTowaru=nazwaTowaru;
+		this.nazwaTowaru=NazwaTowaru;
 	}
 	
-	public int getileSztuk() {
+	public int getIleSztuk() {
 		return ileSztuk;
 	}
 
-	public void setileSztuk(int ileSztuk)
+	public void setIleSztuk(int IleSztuk)
 	{
-		this.ileSztuk=ileSztuk;
+		this.ileSztuk=IleSztuk;
 	}
 	
-	public double getcena() {
+	public double getCena() {
 		return cena;
 	}
 
-	public void setcena(double cena)
+	public void setCena(double cena)
 	{
 		this.cena=cena;
 	}
@@ -99,6 +99,8 @@ public  class Pozycja implements Serializable
 		
 		
 	}
+
+	
 	
 	
 

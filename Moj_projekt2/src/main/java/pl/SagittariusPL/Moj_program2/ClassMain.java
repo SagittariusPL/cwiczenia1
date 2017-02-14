@@ -41,8 +41,12 @@ public class ClassMain
 		
 		//z.zapiszZamowienie( z.toString());
 		//z.wczytajZamowienie("plik");
-		z.zapisDoPliku();
-		z.odczytZPliku();
+		Zamowienie.zapisDoPliku(z, "C://Users//SagittariusPL//Documents//Git//cwiczenia1//zamowienie.ser");
+		//z.usunPozycje(1);
+		//System.out.println(z);
+		Zamowienie.odczytZPliku("C://Users//SagittariusPL//Documents//Git//cwiczenia1//zamowienie.ser");
+		//System.out.println(z.odczytZPliku());
+		
 		
 	
 	}

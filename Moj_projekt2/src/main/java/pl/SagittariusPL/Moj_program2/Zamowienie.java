@@ -9,29 +9,29 @@ public class Zamowienie implements Serializable {
 	Pozycja[] pozycje = new Pozycja[10];
 	private int indeks;
 
-	public int setileDanych() {
+	public int setIleDanych() {
 		return ileDanych;
 	}
 
-	public void getileDanych(int ileDanych) {
+	public void getIleDanych(int ileDanych) {
 		this.ileDanych = ileDanych;
 
 	}
 
-	public int setmaksRozmiar() {
+	public int setMaksRozmiar() {
 		return maksRozmiar;
 	}
 
-	public void getmaksRozmiar(int maksRozmiar) {
+	public void getMaksRozmiar(int maksRozmiar) {
 		this.maksRozmiar = maksRozmiar;
 
 	}
 
-	public int getindeks() {
+	public int getIndeks() {
 		return indeks;
 	}
 
-	public void setindeks(int indeks) {
+	public void setIndeks(int indeks) {
 		this.indeks = indeks;
 	}
 
@@ -50,8 +50,8 @@ public class Zamowienie implements Serializable {
 
 		boolean dodajpoz = false;
 		for (int k = 0; k < ileDanych; k++) {
-			if (pozycje[k].getnazwaTowaru() == p.getnazwaTowaru()) {
-				pozycje[k].setileSztuk(pozycje[k].getileSztuk() + p.getileSztuk());
+			if (pozycje[k].getNazwaTowaru() == p.getNazwaTowaru()) {
+				pozycje[k].setIleSztuk(pozycje[k].getIleSztuk() + p.getIleSztuk());
 				// p.ileSztuk=0;
 				// p.cena=0;
 				// .nazwaTowaru="Zamiana";
@@ -125,13 +125,23 @@ public class Zamowienie implements Serializable {
 		pozycje[indeks] = new Pozycja(nazwatowaru, iloscsztuk, cena);
 
 	}
+	
+	private String nazwaPliku = "plik";
+	
+	//public String getNazwaPliku(){
+		//return nazwaPliku;
+	//}
 
-	public void zapisDoPliku() {
+	//public void serNazwaPliku(String nazwaPliku){
+	///	nazwaPliku= "C://Users//SagittariusPL//Documents//Git//cwiczenia1//zamowienie.ser";
+		//this.nazwaPliku=nazwaPliku;
+	//}
+	public static void zapisDoPliku(Zamowienie z,String nazwaPliku) {
 		try {
 			FileOutputStream fileOut = new FileOutputStream(
-					"C://Users//SagittariusPL//Documents//Git//cwiczenia1//zamowienie.ser");
+					nazwaPliku);
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
-			out.writeObject(pozycje);
+			out.writeObject(z);
 			out.close();
 			fileOut.close();
 			System.out.printf(
@@ -141,12 +151,12 @@ public class Zamowienie implements Serializable {
 		}
 
 	}
-	public void odczytZPliku(){
-		Pozycja[] pozycje = null;
+	public static void odczytZPliku(String nazwaPliku){
+		Zamowienie z = null;
 		 try {
-	         FileInputStream fileIn = new FileInputStream("C://Users//SagittariusPL//Documents//Git//cwiczenia1//zamowienie.ser");
+	         FileInputStream fileIn = new FileInputStream(nazwaPliku);
 	         ObjectInputStream in = new ObjectInputStream(fileIn);
-	         pozycje = (Pozycja[]) in.readObject();
+	         z = (Zamowienie) in.readObject();
 	         in.close();
 	         fileIn.close();
 	         System.out.printf(
